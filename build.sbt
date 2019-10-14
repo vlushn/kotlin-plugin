@@ -32,7 +32,7 @@ bintrayRepository := "sbt-plugins"
 bintrayPackageLabels := Seq("sbt", "plugin")
 bintrayVcsUrl := Some("""git@github.com:tmtsoftware/kotlin-plugin.git""")
 
-publishMavenStyle := false
+publishMavenStyle := true
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
