@@ -1,8 +1,11 @@
 name := "kotlin-plugin"
 
-organization := "com.hanhuy.sbt"
+organization := "com.github.tmtsoftware"
 
-version := "2.0.0-SNAPSHOT"
+version := "2.0.0"
+
+homepage := scmInfo.value map (_.browseUrl)
+scmInfo := Some(ScmInfo(url("https://github.com/tmtsoftware/kotlin-plugin"), "scm:git:git@github.com:tmtsoftware/kotlin-plugin.git"))
 
 scalacOptions ++= Seq("-deprecation","-Xlint","-feature")
 /*
@@ -26,6 +29,8 @@ buildInfoPackage := "kotlin"
 
 // bintray
 bintrayRepository := "sbt-plugins"
+bintrayPackageLabels := Seq("sbt", "plugin")
+bintrayVcsUrl := Some("""git@github.com:tmtsoftware/kotlin-plugin.git""")
 
 publishMavenStyle := false
 
