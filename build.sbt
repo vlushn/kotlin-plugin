@@ -2,7 +2,7 @@ name := "kotlin-plugin"
 
 organization := "com.github.tmtsoftware"
 
-version := "2.0.1-SNAPSHOT"
+version := "2.0.1-RC1"
 
 homepage := scmInfo.value map (_.browseUrl)
 scmInfo := Some(ScmInfo(url("https://github.com/tmtsoftware/kotlin-plugin"), "scm:git:git@github.com:tmtsoftware/kotlin-plugin.git"))
