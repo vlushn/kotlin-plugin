@@ -1,7 +1,7 @@
 TaskKey[Unit]("check-classes") := {
-  val classes = (classDirectory in Compile).value
+  val classes   = (classDirectory in Compile).value
   val classList = (classes ** "*.class").get
-  if (classList.size != 7) {
+  if (classList.size != 9) {
     throw new MessageOnlyException(s"Incorrect number of classes: ${classList.size} =>\n${classList.mkString("\n")}")
   }
 }

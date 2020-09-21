@@ -1,21 +1,17 @@
 name := "kotlin-plugin"
-
+scalaVersion := "2.12.12"
 organization := "com.github.tmtsoftware"
 
 version := "2.0.1-RC1"
 
 homepage := scmInfo.value map (_.browseUrl)
-scmInfo := Some(ScmInfo(url("https://github.com/tmtsoftware/kotlin-plugin"), "scm:git:git@github.com:tmtsoftware/kotlin-plugin.git"))
-
-scalacOptions ++= Seq("-deprecation","-Xlint","-feature")
-/*
-libraryDependencies ++= Seq(
-  "com.hanhuy.sbt" %% "bintray-update-checker" % "0.2"
+scmInfo := Some(
+  ScmInfo(url("https://github.com/tmtsoftware/kotlin-plugin"), "scm:git:git@github.com:tmtsoftware/kotlin-plugin.git")
 )
-*/
+
+scalacOptions ++= Seq("-deprecation", "-Xlint", "-feature")
 
 libraryDependencies ++= Seq(
-  "io.argonaut" %% "argonaut" % "6.2",
   "org.scalaz" %% "scalaz-core" % "7.2.28"
 )
 
