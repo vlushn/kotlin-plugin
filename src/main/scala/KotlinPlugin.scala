@@ -34,7 +34,7 @@ object KotlinPlugin extends AutoPlugin {
     ) ++ inConfig(Compile)(kotlinCompileSettings) ++
       inConfig(Test)(kotlinCompileSettings)
 
-  val autoImøport: Keys.type = Keys
+  val autoImport: Keys.type = Keys
 
   // public to allow kotlin compile in other configs beyond Compile and Test
   val kotlinCompileSettings = List(
