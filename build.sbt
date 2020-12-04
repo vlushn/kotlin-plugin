@@ -2,7 +2,7 @@ name := "kotlin-plugin"
 scalaVersion := "2.12.12"
 organization := "com.github.tmtsoftware"
 
-version := "2.1.0-RC1"
+version := "2.1.0"
 
 homepage := scmInfo.value map (_.browseUrl)
 scmInfo := Some(
