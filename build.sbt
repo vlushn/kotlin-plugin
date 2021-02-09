@@ -39,6 +39,7 @@ bintrayPackageLabels := Seq("sbt", "plugin")
 bintrayVcsUrl := Some("""git@github.com:tmtsoftware/kotlin-plugin.git""")
 
 publishMavenStyle := true
+resolvers += LocalMavenResolverForSbtPlugins
 publishM2Configuration := publishM2Configuration.value.withResolverName(LocalMavenResolverForSbtPlugins.name)
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
