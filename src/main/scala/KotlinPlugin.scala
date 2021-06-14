@@ -21,15 +21,15 @@ object KotlinPlugin extends AutoPlugin {
         "org.jetbrains.kotlin" % "kotlin-scripting-compiler-embeddable" % kotlinVersion.value % KotlinInternal.name,
         "org.jetbrains.kotlin" % "kotlin-scripting-compiler-embeddable" % kotlinVersion.value
       ),
-      managedClasspath in KotlinInternal := Classpaths.managedJars(KotlinInternal, classpathTypes.value, update.value),
-      kotlinVersion := "1.4.10",
+      KotlinInternal / managedClasspath := Classpaths.managedJars(KotlinInternal, classpathTypes.value, update.value),
+      kotlinVersion := "1.5.10",
       kotlincOptions := Nil,
       kotlincPluginOptions := Nil,
       watchSources ++= {
         import language.postfixOps
         val kotlinSources = "*.kt" || "*.kts"
-        (sourceDirectories in Compile).value.flatMap(_ ** kotlinSources get) ++
-        (sourceDirectories in Test).value.flatMap(_ ** kotlinSources get)
+        (Compile / sourceDirectories).value.flatMap(_ ** kotlinSources get) ++
+        (Test / sourceDirectories).value.flatMap(_ ** kotlinSources get)
       }
     ) ++ inConfig(Compile)(kotlinCompileSettings) ++
       inConfig(Test)(kotlinCompileSettings)
@@ -48,12 +48,12 @@ object KotlinPlugin extends AutoPlugin {
           sourceDirectories.value,
           kotlincPluginOptions.value,
           dependencyClasspath.value,
-          (managedClasspath in KotlinInternal).value,
+          (KotlinInternal / managedClasspath).value,
           classDirectory.value,
           streams.value
         )
       }
-      .dependsOn(compileInputs in (Compile, compile))
+      .dependsOn(Compile / compile / compileInputs)
       .value,
     compile := (compile dependsOn kotlinCompile).value,
     kotlinSource := sourceDirectory.value / "kotlin"
