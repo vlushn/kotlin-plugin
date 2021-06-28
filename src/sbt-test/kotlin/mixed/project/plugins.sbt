@@ -8,4 +8,4 @@
 }
 
 resolvers += Resolver.jcenterRepo
-addSbtPlugin("net.aichler" % "sbt-jupiter-interface" % "0.8.3")
+addSbtPlugin("net.aichler" % "sbt-jupiter-interface" % "0.9.1")

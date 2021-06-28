@@ -22,7 +22,7 @@ scmInfo := Some(
 scalacOptions ++= Seq("-deprecation", "-Xlint", "-feature")
 
 libraryDependencies ++= Seq(
-  "org.scalaz" %% "scalaz-core" % "7.3.2"
+  "org.scalaz" %% "scalaz-core" % "7.3.3"
 )
 
 sbtPlugin := true
