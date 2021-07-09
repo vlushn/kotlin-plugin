@@ -1,15 +1,17 @@
 # kotlin-plugin
 
-[![Build Status](https://travis-ci.org/pfn/kotlin-plugin.svg?branch=master)](https://travis-ci.org/pfn/kotlin-plugin)
+![dev](https://github.com/tmtsoftware/kotlin-plugin/workflows/dev/badge.svg)
+![release](https://github.com/tmtsoftware/kotlin-plugin/workflows/release/badge.svg)
 
 Build kotlin code using sbt
 
-Current version 2.1.0
+Current version 3.0.1
 
 ## Usage
 
-* for sbt 0.13.6+
-* `addSbtPlugin("com.hanhuy.sbt" % "kotlin-plugin" % "3.0.0")`
+* for sbt 0.13.6+, add following in project/plugins.sbt:
+  * resolvers += "jitpack" at "https://jitpack.io"
+  * libraryDependencies += "com.github.tmtsoftware" % "kotlin-plugin" % "3.0.1"
 * Kotlin code will build automatically from `src/XXX/kotlin`
 * If necessary, add `kotlinLib("stdlib")`, it is not included by default.
   * Loading standard kotlin libraries and plugins: use `kotlinLib(NAME)` as
@@ -34,7 +36,7 @@ Current version 2.1.0
 * `kotlinSource`: specifies kotlin source directory, defaults to
   `src/main/kotlin` and `src/test/kotlin`
 * `kotlinVersion`: specifies versions of kotlin compiler and libraries to use,
-   defaults to `1.1.4-3`
+   defaults to `1.5.20`
 * `kotlinLib(LIB)`: load a standard kotlin library, for example
   `kotlinLib("stdlib")`; the library will utilize the version specified in
   `kotlinVersion`
@@ -54,4 +56,3 @@ Current version 2.1.0
   `testOnly <test-class>` may be able to test individual classes/suites in
   place of `test`. Any other tasks which rely on automatically detecting
   classes will fail similarly.
-* currently requires kotlin 1.1.4+

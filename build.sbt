@@ -4,7 +4,7 @@ name := "kotlin-plugin"
 scalaVersion := "2.12.12"
 organization := "com.github.tmtsoftware"
 
-version := "3.0.0"
+version := "3.0.1"
 
 lazy val LocalMavenResolverForSbtPlugins = {
   // remove scala and sbt versions from the path, as it does not work with jitpack
@@ -22,7 +22,7 @@ scmInfo := Some(
 scalacOptions ++= Seq("-deprecation", "-Xlint", "-feature")
 
 libraryDependencies ++= Seq(
-  "org.scalaz" %% "scalaz-core" % "7.3.3"
+  "org.scalaz" %% "scalaz-core" % "7.3.4"
 )
 
 sbtPlugin := true

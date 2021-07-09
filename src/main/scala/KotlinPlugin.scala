@@ -22,7 +22,7 @@ object KotlinPlugin extends AutoPlugin {
         "org.jetbrains.kotlin" % "kotlin-scripting-compiler-embeddable" % kotlinVersion.value
       ),
       KotlinInternal / managedClasspath := Classpaths.managedJars(KotlinInternal, classpathTypes.value, update.value),
-      kotlinVersion := "1.5.10",
+      kotlinVersion := "1.5.20",
       kotlincOptions := Nil,
       kotlincPluginOptions := Nil,
       watchSources ++= {

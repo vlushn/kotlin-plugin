@@ -3,7 +3,7 @@ import sbt.complete.Parsers.spaceDelimited
 import scala.xml.{NodeSeq, XML}
 import kotlin.Keys._
 
-scalaVersion := "2.13.5"
+scalaVersion := "2.13.6"
 
 kotlinLib("stdlib")
 kotlincOptions += "-verbose"
