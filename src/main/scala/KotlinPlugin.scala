@@ -25,11 +25,11 @@ object KotlinPlugin extends AutoPlugin {
       kotlinVersion := "1.5.20",
       kotlincOptions := Nil,
       kotlincPluginOptions := Nil,
+      kotlinSourceDir := ((Compile / sourceDirectory).value / "kotlin"),
+      kotlinSources := Seq((Compile / kotlinSourceDir).value),
       watchSources ++= {
-        import language.postfixOps
-        val kotlinSources = "*.kt" || "*.kts"
-        (Compile / sourceDirectories).value.flatMap(_ ** kotlinSources get) ++
-        (Test / sourceDirectories).value.flatMap(_ ** kotlinSources get)
+        (Compile / kotlinSources).value ++
+        (Test / kotlinSources).value
       }
     ) ++ inConfig(Compile)(kotlinCompileSettings) ++
       inConfig(Test)(kotlinCompileSettings)
@@ -38,14 +38,15 @@ object KotlinPlugin extends AutoPlugin {
 
   // public to allow kotlin compile in other configs beyond Compile and Test
   val kotlinCompileSettings = List(
-    unmanagedSourceDirectories += kotlinSource.value,
+    unmanagedSourceDirectories ++= kotlinSources.value,
     kotlincOptions := kotlincOptions.value,
     kotlincPluginOptions := kotlincPluginOptions.value,
+//    compileInputs ++= kotlinSources.value,
     kotlinCompile := Def
       .task {
         KotlinCompile.compile(
           kotlincOptions.value,
-          sourceDirectories.value,
+          kotlinSources.value,
           kotlincPluginOptions.value,
           dependencyClasspath.value,
           (KotlinInternal / managedClasspath).value,
@@ -53,9 +54,8 @@ object KotlinPlugin extends AutoPlugin {
           streams.value
         )
       }
-      .dependsOn(Compile / compile / compileInputs)
+//      .dependsOn(Compile / compile / compileInputs)
       .value,
     compile := (compile dependsOn kotlinCompile).value,
-    kotlinSource := sourceDirectory.value / "kotlin"
   )
 }
